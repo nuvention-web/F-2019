@@ -1,7 +1,29 @@
 .App {
   text-align: center;
-  background-image: linear-gradient(to bottom right, skyblue, white);
+  background-image: linear-gradient(skyblue, white);
 
+}
+
+.topnav {
+  background-image: linear-gradient(to right, #100F17 , #0F181E);
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 2.5vw;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.topnav a:hover {
+  background-color: skyblue;
+  color: black;
 }
 
 .Pooch{
@@ -20,7 +42,6 @@
   padding-top: 1vh;
   padding-bottom: 2vh;
 }
-
 
 
 .App-header {
