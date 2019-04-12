@@ -11,6 +11,8 @@ class App extends Component {
     return (
       <div className="App">
         <CaseComponent/>
+        <CaseComponent/>
+        <CaseComponent/>
 
       </div>
     );
