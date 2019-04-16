@@ -10,9 +10,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <CaseComponent/>
-        <CaseComponent/>
-        <CaseComponent/>
+        <CaseComponent id="1" type="Lightning"/>
+        <CaseComponent id="2" type="Lightning"/>
+        <CaseComponent id="3" type="Lightning"/>
+        <CaseComponent id="4" type="Android"/>
+        <CaseComponent id="5" type="Android"/>
+        <CaseComponent id="6" type="Android"/>
 
       </div>
     );

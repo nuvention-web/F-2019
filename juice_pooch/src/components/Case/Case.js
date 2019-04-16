@@ -24,7 +24,7 @@ class CaseComponent extends Component {
   // });
 
   render() {
-    let box_class = this.state.toggled ? "greenBox" : "redBox";
+    let box_class = this.state.toggled ?   "greenBox" : "redBox";
 
 
     var datetime = new Date();
@@ -34,23 +34,27 @@ class CaseComponent extends Component {
         <div style={{textAlgin:"center"}}>
         	<div className={box_class} >
         		<form style={{display:"flex"}}>
-        		<div>
-        			<p> ID </p>
-        			<p> 10 </p>
+        		<div style={{margin:"10px"}}>
+        			<p> ID {this.props.id} </p>
         		</div>
-        		<div>
+        		<div style = {{margin:"15px"}}>
         			<label>
         				Renter: <br />
     					<input type="text" name="name" />
   					</label>
   				</div>
-  				<div>
+  				<div style={{margin:"15px"}}>
         			<label>
-        				Returned: <br />
-    					<input type="checkbox" onClick={this.changeColor.bind(this)} name="name" />
+        				In Use: <br />
+    					<input type="checkbox"  onClick={this.changeColor.bind(this)} name="name" />
   					</label>
   				</div>
+          <div style={{margin:"10px"}}>
+            <p> Charger Type: <b>{this.props.type} </b> </p>
+          </div>
+
         		</form>
+
         	</div>
         </div>
       </div>
