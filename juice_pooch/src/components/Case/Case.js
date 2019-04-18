@@ -38,12 +38,22 @@ class CaseComponent extends Component {
   changeColor(){
     this.setState({checked_out: !this.state.checked_out})
     // Adds to database
+    if (this.state.checked_out){
     db.collection("Chargers").doc("Charger " + this.props.id).set({
       InUse: !this.state.checked_out,
       ID: this.props.id,
       Renter: this.state.value,
-      StartTime: this.state.checkOutTime
-    })   
+      ReturnedTime: this.state.checkOutTime
+    })  
+    }
+    else {
+      db.collection("Chargers").doc("Charger " + this.props.id).set({
+      InUse: !this.state.checked_out,
+      ID: this.props.id,
+      Last_Renter: this.state.value,
+      Start_Time: this.state.checkOutTime
+    })  
+    } 
 
   }
 
