@@ -3,6 +3,23 @@ import React, { Component } from 'react';
 import './style.css';
 
 
+  const firebase = require("firebase");
+  // Required for side-effects
+  require("firebase/firestore");  
+
+  var config = {
+    apiKey: "AIzaSyBMVF74o5DaHdq772T-rOHYS2shoc1BQbk",
+    authDomain: "juicepooch-75729.firebaseapp.com",
+    databaseURL: "https://juicepooch-75729.firebaseio.com",
+    projectId: "juicepooch-75729",
+    storageBucket: "juicepooch-75729.appspot.com",
+    messagingSenderId: "637216624692"
+  };
+
+  firebase.initializeApp(config);
+  var db = firebase.firestore();
+
+
 class CaseComponent extends Component {
   constructor(){
       super();
@@ -10,7 +27,8 @@ class CaseComponent extends Component {
       this.state = {
          checked_out: false,
          checkOutTime: new Date(),
-         value: ""
+         value: "",
+         id: ""
 
       }
       this.handleChange = this.handleChange.bind(this);
@@ -19,6 +37,14 @@ class CaseComponent extends Component {
 
   changeColor(){
     this.setState({checked_out: !this.state.checked_out})
+    // Adds to database
+    db.collection("Chargers").doc("Charger " + this.props.id).set({
+      InUse: !this.state.checked_out,
+      ID: this.props.id,
+      Renter: this.state.value,
+      StartTime: this.state.checkOutTime
+    })   
+
   }
 
   changeCheckoutTime(){
@@ -27,7 +53,7 @@ class CaseComponent extends Component {
 
   handleChange(event) {
   this.setState({value: event.target.value});
-}
+  }
 
 handleSubmit(event) {
   event.preventDefault();
@@ -35,6 +61,12 @@ handleSubmit(event) {
   checkOut(){
     this.changeColor();
     this.changeCheckoutTime();
+    
+    // db.collection("Chargers").doc("Charger " + this.props.id).set({
+    //   ID: this.props.id,
+    //   Renter: this.state.value,
+    //   StartTime: this.state.checkOutTime
+    // })
   }
 
 
@@ -62,7 +94,8 @@ handleSubmit(event) {
 
               {isCheckedOut ?
                 (<div style = {{margin:"15px;width:20%"}}>{this.state.value}
-                  <button onClick={ this.checkOut.bind(this)}>Return</button> </div>)
+                  <button onClick={ this.changeColor.bind(this)}>Return</button> </div>)
+
 
                 :
                 (<div style = {{margin:"15px"}}>
