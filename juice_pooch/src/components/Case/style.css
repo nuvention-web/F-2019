@@ -1,7 +1,57 @@
+.availableBox {
+  background-Color: #55AA55;
+  width:80vw;
+  height: 10vh;
+  display: inline-block;
+  border-radius: 10px;
+  margin-top: 2vh;
+  text-align: center;
+}
+
+.unavailableBox {
+  background-Color: DarkGray;
+  width:80vw;
+  height: 10vh;
+  display: inline-block;
+  border-radius: 10px;
+  margin-top: 2vh;
+  text-align: center;
+}
+
+.idBox{
+  padding-top: 8%;
+  float: left;
+  width: 25%;
+  height: 100%;
+  display: inline-block;
+
+}
+
+.textBox{
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+
+.checkoutBox{
+  padding-top: 5%;
+  float:left;
+  width: 25%;
+  height: 100%;
+}
+
+.img{
+  width: 40%;
+}
+
+
+
+
+
 .redBox {
   border-radius: 10px;
   margin-top: 2%;
-  background-color: #F2382E;
+  background-color: DarkGray;
   width:80%;
   height: 100px;
   display: inline-block;

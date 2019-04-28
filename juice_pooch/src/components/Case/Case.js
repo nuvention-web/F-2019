@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 // import Card from '@material-ui/core/Card';
 import './style.css';
+import checkmark from '../../img/checkmark.png';
+import returnIcon from '../../img/return.png';
 
 
   const firebase = require("firebase");
   // Required for side-effects
-  require("firebase/firestore");  
+  require("firebase/firestore");
 
   var config = {
     apiKey: "AIzaSyBMVF74o5DaHdq772T-rOHYS2shoc1BQbk",
@@ -44,7 +46,7 @@ class CaseComponent extends Component {
       ID: this.props.id,
       Renter: this.state.value,
       ReturnedTime: this.state.checkOutTime
-    })  
+    })
     }
     else {
       db.collection("Chargers").doc("Charger " + this.props.id).set({
@@ -52,8 +54,8 @@ class CaseComponent extends Component {
       ID: this.props.id,
       Last_Renter: this.state.value,
       Start_Time: this.state.checkOutTime
-    })  
-    } 
+    })
+    }
 
   }
 
@@ -71,7 +73,7 @@ handleSubmit(event) {
   checkOut(){
     this.changeColor();
     this.changeCheckoutTime();
-    
+
     // db.collection("Chargers").doc("Charger " + this.props.id).set({
     //   ID: this.props.id,
     //   Renter: this.state.value,
@@ -90,54 +92,36 @@ handleSubmit(event) {
 
   render() {
     const isCheckedOut = this.state.checked_out;
-    let box_class = this.state.checked_out ?  "redBox" : "greenBox" ;
+    let box_class = this.state.checked_out ?  "unavailableBox" : "availableBox" ;
     const currtime = this.state.checkOutTime;
     var data = this.props.data;
+
+
     return (
-      <div >
-        <div style={{textAlgin:"center"}}>
-        	<div className={box_class} >
-        		<form style={{display:"flex"}}>
-          		<div style={{margin:"10px"}}>
-          			<p> ID {this.props.id} </p>
-          		</div>
-
-              {isCheckedOut ?
-                (<div style = {{margin:"15px;width:20%"}}>{this.state.value}
-                  <button onClick={ this.changeColor.bind(this)}>Return</button> </div>)
-
-
-                :
-                (<div style = {{margin:"15px"}}>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                      Name:
-                      <input type="text" value={this.state.value} onChange={this.handleChange} />
-                    </label>
-                      <input type="submit" value="Submit" onClick={ this.checkOut.bind(this)} />
-                </form>
-    				          </div>)
-                    }
-
-
-          <div style={{margin:"10px"}}>
-            <p> Charger Type: <b>{this.props.type} </b> </p>
-          </div>
-
-          <div style={{margin:"15px"}}>
-             <label >
-
-                {isCheckedOut ?
-                  (<div>Checked out: {currtime.toLocaleString()}</div>):
-                    (<div>Available</div>) }
-
-            </label>
-          </div>
-
-        		</form>
-
-        	</div>
+      <div className={box_class}>
+        <div className={"idBox"}>
+          ID {this.props.id}
         </div>
+        <div className={"brandLogo"}>
+        </div>
+        <form onSubmit={this.handleSubmit}>
+          <div className={"textBox"}>
+              {isCheckedOut ?
+                (<div>Checked out: {currtime.toLocaleString()}</div>):
+                  (<div> Name:
+                  <input type="text" value={this.state.value} onChange={this.handleChange} />
+                  </div>)}
+
+            </div>
+          <div className ={"checkoutBox"}>
+             <button type="submit" value="Submit" onClick={this.checkOut.bind(this)}>
+                {isCheckedOut ?
+                 (<div><img src={returnIcon} className={"img"}/></div>):
+                 (<div><img src={checkmark} className ={"img"}/></div>)
+               }
+            </button>
+          </div>
+        </form>
       </div>
 
     );
@@ -145,3 +129,50 @@ handleSubmit(event) {
 }
 
 export default CaseComponent;
+
+
+      // <div>
+      //   <div style={{textAlgin:"center"}}>
+      //   	<div className={box_class} >
+      //   		<form style={{display:"flex"}}>
+      //     		<div style={{margin:"10px"}}>
+      //     			<p> ID {this.props.id} </p>
+      //     		</div>
+      //
+      //         {isCheckedOut ?
+      //           (<div style = {{margin:"15px;width:20%"}}>{this.state.value}
+      //             <button onClick={ this.changeColor.bind(this)}>Return</button> </div>)
+      //
+      //
+      //           :
+      //           (<div style = {{margin:"15px"}}>
+      //           <form onSubmit={this.handleSubmit}>
+      //               <label>
+      //                 Name:
+      //                 <input type="text" value={this.state.value} onChange={this.handleChange} />
+      //               </label>
+      //                 <input type="submit" value="Submit" onClick={ this.checkOut.bind(this)} />
+      //           </form>
+    	// 			          </div>)
+      //               }
+      //
+      //
+      //     <div style={{margin:"10px"}}>
+      //       <p> Charger Type: <b>{this.props.type} </b> </p>
+      //     </div>
+      //
+      //     <div style={{margin:"15px"}}>
+      //        <label >
+      //
+      //           {isCheckedOut ?
+      //             (<div>Checked out: {currtime.toLocaleString()}</div>):
+      //               (<div>Available</div>) }
+      //
+      //       </label>
+      //     </div>
+      //
+      //   		</form>
+      //
+      //   	</div>
+      //   </div>
+      // </div>

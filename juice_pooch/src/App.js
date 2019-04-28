@@ -6,6 +6,7 @@ import venmo from './img/venmo.jpg'
 
 import CaseComponent from './components/Case/Case.js'
 
+
 class App extends Component {
   render() {
     return (
