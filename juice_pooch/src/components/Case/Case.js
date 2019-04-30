@@ -52,7 +52,7 @@ class CaseComponent extends Component {
       db.collection("Chargers").doc("Charger " + this.props.id).set({
       InUse: !this.state.checked_out,
       ID: this.props.id,
-      Last_Renter: this.state.value,
+      Renter: this.state.value,
       Start_Time: this.state.checkOutTime
     })
     }
