@@ -50,7 +50,7 @@ class CaseComponent extends Component {
       db.collection("Chargers").doc("Charger " + this.props.id).set({
       InUse: !this.state.checked_out,
       ID: this.props.id,
-      Last_Renter: this.state.value,
+      Renter: this.state.value,
       Start_Time: this.state.checkOutTime
     })  
     } 
@@ -80,19 +80,11 @@ handleSubmit(event) {
   }
 
 
-
-  // const styles = theme => ({
-  //   card: {
-  //     maxWidth: 345,
-  //     height: 100,
-  //   },
-  // });
-
   render() {
     const isCheckedOut = this.state.checked_out;
     let box_class = this.state.checked_out ?  "redBox" : "greenBox" ;
     const currtime = this.state.checkOutTime;
-    var data = this.props.data;
+    // var data = this.props.data;
     return (
       <div >
         <div style={{textAlgin:"center"}}>
