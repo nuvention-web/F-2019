@@ -73,7 +73,7 @@ class App extends Component {
       return (
           <div>
             {/* <h1>{item["Renter"]}</h1> */}
-          <CaseComponent id={item['ID']} type="Lightning"/>
+          <CaseComponent id={item['ID']} inuse={item['InUse']}/>
           </div>
         )
     })

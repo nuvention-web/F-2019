@@ -89,10 +89,14 @@ handleSubmit(event) {
   //     height: 100,
   //   },
   // });
+  componentDidMount() {
+    this.setState({checked_out: this.props.inuse}) 
+  }
 
   render() {
     const isCheckedOut = this.state.checked_out;
     let box_class = this.state.checked_out ?  "unavailableBox" : "availableBox" ;
+    // let box_class = this.props.inuse ?  "unavailableBox" : "availableBox" ;   
     const currtime = this.state.checkOutTime;
     var data = this.props.data;
 
