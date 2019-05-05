@@ -30,10 +30,12 @@ class CaseComponent extends Component {
          checked_out: false,
          checkOutTime: new Date(),
          value: "",
+         venmo: "",
          id: ""
 
       }
       this.handleChange = this.handleChange.bind(this);
+      this.handleChange2 = this.handleChange2.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -45,7 +47,8 @@ class CaseComponent extends Component {
       InUse: !this.state.checked_out,
       ID: this.props.id,
       Renter: this.state.value,
-      ReturnedTime: this.state.checkOutTime
+      ReturnedTime: this.state.checkOutTime,
+      venmo: this.state.venmo
     })
     }
     else {
@@ -53,7 +56,8 @@ class CaseComponent extends Component {
       InUse: !this.state.checked_out,
       ID: this.props.id,
       Renter: this.state.value,
-      Start_Time: this.state.checkOutTime
+      Start_Time: this.state.checkOutTime,
+      venmo: this.state.venmo
     })
     }
 
@@ -66,6 +70,9 @@ class CaseComponent extends Component {
   handleChange(event) {
   this.setState({value: event.target.value});
   }
+  handleChange2(event) {
+    this.setState({venmo: event.target.value});
+    }
 
 handleSubmit(event) {
   event.preventDefault();
@@ -112,8 +119,13 @@ handleSubmit(event) {
           <div className={"textBox"}>
               {isCheckedOut ?
                 (<div>Checked out: {currtime.toLocaleString()}</div>):
-                  (<div> Name:
+                  (<div>
+                  <div> Name:
                   <input type="text" value={this.state.value} onChange={this.handleChange} />
+                  </div>
+                  <div> Venmo:
+                  <input type="text" value={this.state.venmo} onChange={this.handleChange2} />
+                  </div>
                   </div>)}
 
             </div>

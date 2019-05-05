@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700,900');
+
+
 .App {
   text-align: center;
   height: 100vh;
@@ -11,8 +14,26 @@
   overflow: hidden;
 }
 
+#title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 10vw;
+  color: rgb(131, 204, 247);
+}
+
+.topnav {
+  background-color: #0F181E;
+  overflow: hidden;
+  width: 100%;
+}
+/* .fixed-nav topnav {
+  position: fixed;
+  top:0;
+  z-index: 1;
+} */
+
 /* Style the links inside the navigation bar */
-.topnav a {
+/* .topnav a {
   float: left;
   display: block;
   color: #f2f2f2;
@@ -21,12 +42,13 @@
   text-decoration: none;
   font-size: 2.5vw;
   font-family: 'Montserrat', sans-serif;
-}
+} */
 
-.topnav a:hover {
+/* .topnav a:hover {
   background-color: skyblue;
   color: black;
-}
+} */
+
 
 .Pooch{
   width: 50%;

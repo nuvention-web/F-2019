@@ -96,6 +96,7 @@ class App extends Component {
     return (
       
       <div className="App">
+      <div class="topnav" id="title">Juice Pooch</div>
         {this.showChargers()}
       </div>
     );
