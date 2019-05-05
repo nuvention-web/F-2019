@@ -1,7 +1,8 @@
 .App {
   text-align: center;
   height: 100vh;
-  background-image: linear-gradient(skyblue, skyblue);
+  /* background-image: linear-gradient(skyblue, skyblue); */
+  background-color: white;
 
 }
 

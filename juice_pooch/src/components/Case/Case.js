@@ -120,8 +120,10 @@ handleSubmit(event) {
           <div className ={"checkoutBox"}>
              <button type="submit" value="Submit" onClick={this.checkOut.bind(this)}>
                 {isCheckedOut ?
-                 (<div><img src={returnIcon} className={"img"}/></div>):
-                 (<div><img src={checkmark} className ={"img"}/></div>)
+                //  (<div><img src={returnIcon} className={"img"}/></div>):
+                //  (<div><img src={checkmark} className ={"img"}/></div>)
+                (<div>Return</div>):
+                (<div>Checkout</div>)
                }
             </button>
           </div>
