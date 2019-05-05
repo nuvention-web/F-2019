@@ -21,6 +21,20 @@
   color: rgb(131, 204, 247);
 }
 
+#user {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 5vw;
+}
+#userInput {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 5vw;
+  width: 20%;
+
+}
+
+
 .topnav {
   background-color: #0F181E;
   overflow: hidden;
