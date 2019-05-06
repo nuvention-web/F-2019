@@ -59,6 +59,7 @@ class App extends Component {
           // doc.data() is never undefined for query doc snapshots
           //this.setState({chargers: this.state.chargers.push(doc.data())});
           // chargerlist.push(doc.data());
+          // if(doc.data()['Contractor'] == this.state.contractor){
           chargerlist[i] = doc.data();
           i = i + 1;
         });
@@ -69,12 +70,26 @@ class App extends Component {
         console.log(current.state.chargers);  
       });
   }
+  // showChargers() {
+  //   return _.map(this.state.chargers, (item, index) => {
+  //     return (
+  //         <div>
+  //         <CaseComponent id={item['ID']} inuse={item['InUse']} user={this.state.contractor}/>
+  //         </div>
+  //       )
+  //   })
+  // }
+
   showChargers() {
     return _.map(this.state.chargers, (item, index) => {
       return (
-          <div>
-          <CaseComponent id={item['ID']} inuse={item['InUse']} user={this.state.contractor}/>
-          </div>
+        <div>
+          {this.state.contractor == item['Contractor'] ?
+                (<div><CaseComponent id={item['ID']} inuse={item['InUse']} user={this.state.contractor}/>
+                  </div>):
+                  (<div>
+                  </div>)}
+        </div>
         )
     })
   }
@@ -91,7 +106,7 @@ class App extends Component {
       </div>
       </form>
         {/* {this.showChargers()} */}
-        {this.state.contractor ?
+        {this.state.contractor?
                 (<div>{this.showChargers()}</div>):
                   (<div></div>)}
       </div>

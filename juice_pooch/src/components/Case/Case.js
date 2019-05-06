@@ -43,20 +43,22 @@ class CaseComponent extends Component {
     this.setState({checked_out: !this.state.checked_out})
     // Adds to database
     if (this.state.checked_out){
-    db.collection(this.props.user + "Chargers").doc("Charger " + this.props.id).set({
+    db.collection("Chargers").doc("Charger " + this.props.id).set({
       InUse: !this.state.checked_out,
       ID: this.props.id,
       Renter: this.state.value,
       ReturnedTime: this.state.checkOutTime,
+      Contractor: this.props.user,
       venmo: this.state.venmo
     })
     }
     else {
-      db.collection(this.props.user + "Chargers").doc("Charger " + this.props.id).set({
+      db.collection("Chargers").doc("Charger " + this.props.id).set({
       InUse: !this.state.checked_out,
       ID: this.props.id,
       Renter: this.state.value,
       Start_Time: this.state.checkOutTime,
+      Contractor: this.props.user,
       venmo: this.state.venmo
     })
     }
