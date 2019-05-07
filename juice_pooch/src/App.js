@@ -4,7 +4,7 @@ import _ from 'lodash';
 import './App.css';
 // import pooch from './img/pooch.png'
 // import venmo from './img/venmo.jpg'
-import Button from 'react-bootstrap/Button';
+
 
 import CaseComponent from './components/Case/Case.js'
   
@@ -37,13 +37,13 @@ class App extends Component {
     
 
   getChargers() {
-    console.log(this.state.chargers);
+    // console.log(this.state.chargers);
     // return <h1>{this.state.chargers[0]["ID"]}</h1>;
   }
 
   handleChange(event) {
     this.setState({contractor: event.target.value});
-    console.log(this.state.contractor)
+    // console.log(this.state.contractor)
   }
 
   componentDidMount() {

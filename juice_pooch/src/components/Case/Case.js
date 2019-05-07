@@ -30,7 +30,7 @@ class CaseComponent extends Component {
          checked_out: false,
          checkOutTime: new Date(),
          value: "",
-         venmo: "",
+         phone: "",
          id: ""
 
       }
@@ -49,7 +49,7 @@ class CaseComponent extends Component {
       Renter: this.state.value,
       ReturnedTime: this.state.checkOutTime,
       Contractor: this.props.user,
-      venmo: this.state.venmo
+      phone: this.state.phone
     })
     }
     else {
@@ -59,7 +59,7 @@ class CaseComponent extends Component {
       Renter: this.state.value,
       Start_Time: this.state.checkOutTime,
       Contractor: this.props.user,
-      venmo: this.state.venmo
+      phone: this.state.phone
     })
     }
 
@@ -73,7 +73,7 @@ class CaseComponent extends Component {
   this.setState({value: event.target.value});
   }
   handleChange2(event) {
-    this.setState({venmo: event.target.value});
+    this.setState({phone: event.target.value});
     }
 
 handleSubmit(event) {
@@ -125,8 +125,8 @@ handleSubmit(event) {
                   <div> Name:
                   <input type="text" value={this.state.value} onChange={this.handleChange} />
                   </div>
-                  <div> Venmo:
-                  <input type="text" value={this.state.venmo} onChange={this.handleChange2} />
+                  <div> Phone Number:
+                  <input type="text" value={this.state.phone} onChange={this.handleChange2} />
                   </div>
                   </div>)}
 
