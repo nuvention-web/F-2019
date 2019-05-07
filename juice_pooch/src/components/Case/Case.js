@@ -120,7 +120,7 @@ handleSubmit(event) {
         <form onSubmit={this.handleSubmit}>
           <div className={"textBox"}>
               {isCheckedOut ?
-                (<div>Checked out: {currtime.toLocaleString()}</div>):
+                (<div><div>Checked out: {currtime.toLocaleString()}</div><h1>{this.state.phone}</h1></div>):
                   (<div>
                   <div> Name:
                   <input type="text" value={this.state.value} onChange={this.handleChange} />
