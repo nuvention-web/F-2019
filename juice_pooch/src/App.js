@@ -82,10 +82,11 @@ class App extends Component {
 
   showChargers() {
     return _.map(this.state.chargers, (item, index) => {
+      console.log(item['Time'].toDate())
       return (
         <div>
           {this.state.contractor == item['Contractor'] ?
-                (<div><CaseComponent id={item['ID']} inuse={item['InUse']} user={this.state.contractor}/>
+                (<div><CaseComponent time={item['Time'].toDate()} id={item['ID']} inuse={item['InUse']} user={this.state.contractor}/>
                   </div>):
                   (<div>
                   </div>)}
