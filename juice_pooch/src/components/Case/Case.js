@@ -47,7 +47,7 @@ class CaseComponent extends Component {
       InUse: !this.state.checked_out,
       ID: this.props.id,
       Renter: this.state.value,
-      ReturnedTime: this.state.checkOutTime,
+      Time: this.state.checkOutTime,
       Contractor: this.props.user,
       phone: this.state.phone
     })
@@ -57,7 +57,7 @@ class CaseComponent extends Component {
       InUse: !this.state.checked_out,
       ID: this.props.id,
       Renter: this.state.value,
-      Start_Time: this.state.checkOutTime,
+      Time: this.state.checkOutTime,
       Contractor: this.props.user,
       phone: this.state.phone
     })
@@ -106,8 +106,10 @@ handleSubmit(event) {
     const isCheckedOut = this.state.checked_out;
     let box_class = this.state.checked_out ?  "unavailableBox" : "availableBox" ;
     // let box_class = this.props.inuse ?  "unavailableBox" : "availableBox" ;   
-    const currtime = this.state.checkOutTime;
+    // const currtime = this.state.checkOutTime;
+    const currtime = this.props.time;
     var data = this.props.data;
+    console.log(typeof currtime.toLocaleString());
 
 
     return (
